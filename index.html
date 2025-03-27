@@ -26,6 +26,7 @@
 
         const main = () => {
             const iframe = document.getElementById('msBingFrame');
+            const waitTimeDisplay = document.getElementById('waitTime');
             let counter = 0;
 
             const randomText = () => {
@@ -61,8 +62,8 @@
                 waitTimeDisplay.textContent = `Counter: ${counter}, Waiting time: ${waitSeconds}s`;
 
                 if (counter % 3 === 0) {
-                    console.log('Waiting for 4 minutes...');
-                    setTimeout(func, 1 * 60 * 1000); // Chờ 4 phút
+                    waitTimeDisplay.textContent += " (1 minutes pause)";
+                    setTimeout(func, 1 * 60 * 1000); // Chờ 1 phút
                 } else if (counter < 35) {
                     setTimeout(func, randomInterval);
                 }
