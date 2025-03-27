@@ -52,31 +52,14 @@
             const func = () => {
                 const searchString = randomText();
                 iframe.src = `https://www.bing.com/search?q=${searchString}&PC=U316&form=ASDSBZ`;
-                const randomInterval = Math.floor(Math.random() * 70) * 1000 + 20000;
+                const randomInterval = Math.floor(Math.random() * 11) * 1000 + 10000;
 
                 counter++;
                 console.log(`counter: ${counter}, wait: ${randomInterval}ms`);
 
-                // Khi iframe tải xong, thực hiện scroll
-                iframe.onload = () => {
-                    setTimeout(() => {
-                        simulateScroll(); // Cuộn lần đầu sau khi tải
-                        // Cuộn thêm vài lần ngẫu nhiên
-                        const extraScrolls = Math.floor(Math.random() * 3) + 1; // 1-3 lần cuộn thêm
-                        let scrollCount = 0;
-                        const scrollInterval = setInterval(() => {
-                            simulateScroll();
-                            scrollCount++;
-                            if (scrollCount >= extraScrolls) {
-                                clearInterval(scrollInterval);
-                            }
-                        }, 2000); // Cuộn mỗi 2 giây
-                    }, 1000); // Đợi 1 giây sau khi tải để đảm bảo nội dung sẵn sàng
-                };
-
                 if (counter % 3 === 0) {
                     console.log('Waiting for 4 minutes...');
-                    setTimeout(func, 4 * 60 * 1000); // Chờ 4 phút
+                    setTimeout(func, 1 * 60 * 1000); // Chờ 4 phút
                 } else if (counter < 35) {
                     setTimeout(func, randomInterval);
                 }
