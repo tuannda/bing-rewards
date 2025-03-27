@@ -58,13 +58,13 @@
 
                 counter++;
                 // Hiển thị thời gian chờ trên giao diện
-                const waitSeconds = counter % 3 === 0 ? 240 : randomInterval / 1000;
+                const waitSeconds = counter % 3 === 0 ? 60 : randomInterval / 1000;
                 waitTimeDisplay.textContent = `Counter: ${counter}, Waiting time: ${waitSeconds}s`;
 
                 if (counter % 3 === 0) {
                     waitTimeDisplay.textContent += " (1 minutes pause)";
                     setTimeout(func, 1 * 60 * 1000); // Chờ 1 phút
-                } else if (counter < 35) {
+                } else if (counter < 65) {
                     setTimeout(func, randomInterval);
                 }
             };
