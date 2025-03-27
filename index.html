@@ -14,6 +14,7 @@
 </head>
 <body>
     <h1>Random Bing Search with Scroll</h1>
+    <p id="waitTime">Waiting time: 0s</p>
     <iframe id="msBingFrame" src="https://www.bing.com"></iframe>
 
     <script>
@@ -55,7 +56,9 @@
                 const randomInterval = Math.floor(Math.random() * 11) * 1000 + 10000;
 
                 counter++;
-                console.log(`counter: ${counter}, wait: ${randomInterval}ms`);
+                // Hiển thị thời gian chờ trên giao diện
+                const waitSeconds = counter % 3 === 0 ? 240 : randomInterval / 1000;
+                waitTimeDisplay.textContent = `Counter: ${counter}, Waiting time: ${waitSeconds}s`;
 
                 if (counter % 3 === 0) {
                     console.log('Waiting for 4 minutes...');
